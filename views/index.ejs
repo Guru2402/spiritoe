@@ -529,7 +529,7 @@
    ================================================== -->
    <section id="map">
 
-      <p class="map-error">Something went wrong... Unable to load map... Please try to enable javascript</p>
+      <!-- <p class="map-error">Something went wrong... Unable to load map... Please try to enable javascript</p> -->
 
    </section> <!-- Map Section End-->
 
@@ -626,8 +626,22 @@
    <script src="js/scrollspy.js"></script>
    <script src="js/jquery.flexslider.js"></script>
    <script src="js/jquery.reveal.js"></script>
-   <script src="http://maps.google.com/maps/api/js?key=AIzaSyCxQTAaZk98EPQCjqaFEPyY2km0ri7EFMY" type="text/javascript"></script>
-   <script src="js/gmaps.js"></script>
+	 <script>
+		 function initMap() {
+			 var uluru = {lat: -25.363, lng: 131.044};
+			 var map = new google.maps.Map(document.getElementById('map'), {
+				 zoom: 4,
+				 center: uluru
+			 });
+			 var marker = new google.maps.Marker({
+				 position: uluru,
+				 map: map
+			 });
+		 }
+	 </script>
+
+   <script async defer src="https://maps.google.com/maps/api/js?key=AIzaSyCxQTAaZk98EPQCjqaFEPyY2km0ri7EFMY&callback=initMap" type="text/javascript"></script>
+   <!-- <script src="js/gmaps.js"></script> -->
    <script src="js/init.js"></script>
    <script src="js/smoothscrolling.js"></script>
 
